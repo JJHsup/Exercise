@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Web_Crawler_API.Models.PlayersModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.G)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PTS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AST)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FG3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eFG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.G)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PTS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AST)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FG3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eFG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WS)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

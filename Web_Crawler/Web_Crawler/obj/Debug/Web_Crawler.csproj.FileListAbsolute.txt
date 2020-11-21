@@ -1,0 +1,15 @@
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\obj\Debug\Web_Crawler.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\obj\Debug\Web_Crawler.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\Web_Crawler.exe.config
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\Web_Crawler.exe
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\Web_Crawler.pdb
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\HtmlAgilityPack.dll
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\HtmlAgilityPack.xml
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\obj\Debug\Web_Crawler.csproj.CopyComplete
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\obj\Debug\Web_Crawler.exe
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\obj\Debug\Web_Crawler.pdb
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\EntityFramework.dll
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\EntityFramework.xml
+C:\Users\PC\Desktop\題目\C#\Web_Crawler\Web_Crawler\bin\Debug\EntityFramework.SqlServer.xml
