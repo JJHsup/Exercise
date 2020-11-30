@@ -3,39 +3,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Web_Crawler
 {
-    public class Ht
-    {
-        public HtmlNodeCollection HtmlList(int i, HtmlDocument doc)
-        {
-            HtmlNodeCollection item = doc.DocumentNode.SelectNodes($"//*[@id='div_alphabet']/ul/li[" + i + "]");
-            return item;
-        }
-    }
-
     internal class Program
     {
         private static void Main()
         {
-            Ht a = new Ht();
+            Intosql sql = new Intosql();
+            sql.Connection();
+            Web_Crawler.Program Crawler = new Program();
+            List<string> abc = new List<string> { "a", "b", "c" };
             try
-            {
-                HtmlWeb webClient = new HtmlWeb(); //建立htmlweb
-                //處理C# 連線 HTTPS 網站發生驗證失敗導致基礎連接已關閉
+            {                
+                HtmlWeb webClient = new HtmlWeb();
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls |
                 SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-                HtmlDocument doc = webClient.Load("https://www.basketball-reference.com/players/"); //載入網址資料
-                for (var i = 1; i < 27; i++)
+                for(int i = 0; i < abc.Count(); i++)
                 {
-                    HtmlNodeCollection list = a.HtmlList(i, doc);
-                    string ans = list[0].InnerText.ToString();
-                    string url = "https://www.basketball-reference.com" + list[0].Attributes["href"].Value;
-                    Console.WriteLine(ans);
-                    Console.WriteLine(url);
+                    string loadurl = "https://www.basketball-reference.com/players/" + abc[i] + "/";
+                    HtmlDocument loaddoc = webClient.Load(loadurl);
+                    for(int j = 1; j < 2; j++)
+                    {
+                        string playerurl = Crawler.CrawlerPlayerurl(loaddoc , j);
+                        if (playerurl != null)
+                        {
+                            HtmlDocument playerdoc = webClient.Load(playerurl);
+                            Crawler.CrawlerPlayerinfo(playerdoc);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -43,6 +46,53 @@ namespace Web_Crawler
                 Console.WriteLine("ERROR=" + ex.ToString());
             }
             Console.ReadLine();
+        }
+
+        public string CrawlerPlayerurl(HtmlDocument doc , int membernum)
+        {
+            HtmlNodeCollection player = doc.DocumentNode.SelectNodes($"//*[@id='players']/tbody/tr[" + membernum + "]/th/a");
+            if (player == null)
+            {
+                HtmlNodeCollection playerstr = doc.DocumentNode.SelectNodes($"//*[@id='players']/tbody/tr[" + membernum + "]/th/strong/a");
+                string playerstrinfourl = "https://www.basketball-reference.com" + playerstr[0].Attributes["href"].Value;
+                return playerstrinfourl;
+            }
+            else
+            {
+                string playerinfourl = "https://www.basketball-reference.com" + player[0].Attributes["href"].Value;
+                return playerinfourl;
+            }
+        }
+
+        public void CrawlerPlayerinfo (HtmlDocument doc)
+        {
+            HtmlNodeCollection name = doc.DocumentNode.SelectNodes($"//*[@id='meta']/div/h1/span");
+            Console.WriteLine(name[0].InnerText.ToString());
+            this.CrawlerPlayerCareer(doc,2,1);
+        }
+
+        public void CrawlerPlayerCareer(HtmlDocument doc , int i , int j)
+        {
+            HtmlNodeCollection careeritem = doc.DocumentNode.SelectNodes($"//*[@id='info']/div[4]/div[" + i + "]/div[" + j + "]/h4");
+            HtmlNodeCollection careerdata = doc.DocumentNode.SelectNodes($"//*[@id='info']/div[4]/div[" + i + "]/div[" + j + "]/p[2]");
+            List<string> playerinfo = new List<string>();
+            if (careeritem != null)
+            {
+                j++;
+                playerinfo.Add(careerdata[0].InnerText.ToString());
+                Console.WriteLine(careeritem[0].InnerText.ToString() + " : " + careerdata[0].InnerText.ToString());
+                this.CrawlerPlayerCareer(doc, i, j);
+            }
+            else if(careeritem == null && i < 5)
+            {
+                i++;
+                j = 1;
+                this.CrawlerPlayerCareer(doc, i, j);
+            }
+            foreach(var item in playerinfo)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

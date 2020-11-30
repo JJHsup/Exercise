@@ -11,23 +11,23 @@ namespace Web_Crawler_API.Repository
     {
         private readonly Web_Crawler_APIContext db = new Web_Crawler_APIContext();
 
-        public void PlayerPost(PlayersModel players)
+        public void PlayerPost(List<string> players)
         {
             PlayersModel player = new PlayersModel()
             {
-                PlayerName = players.PlayerName,
-                G = players.G,
-                PTS = players.PTS,
-                TRB = players.TRB,
-                AST = players.AST,
-                FG = players.FG,
-                FG3 = players.FG3,
-                FT = players.FT,
-                eFG = players.eFG,
-                PER = players.PER,
-                WS = players.WS
+                Name = players[10],
+                G = players[9],
+                PTS = players[8],
+                TRB = players[7],
+                AST = players[6],
+                FG = players[5],
+                FG3 = players[4],
+                FT = players[3],
+                eFG = players[2],
+                PER = players[1],
+                WS = players[0]
             };
-            db.PlayersModels.Add(player);
+            db.APlayer.Add(player);
             db.SaveChanges();
         }
     }

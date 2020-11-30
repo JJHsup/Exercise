@@ -12,6 +12,6 @@ namespace Web_Crawler_API.Data
         {
         }
 
-        public System.Data.Entity.DbSet<Web_Crawler_API.Models.PlayersModel> PlayersModels { get; set; }
+        public System.Data.Entity.DbSet<Web_Crawler_API.Models.PlayersModel> APlayer { get; set; }
     }
 }

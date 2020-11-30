@@ -18,7 +18,7 @@ namespace Web_Crawler_API.Controllers
         // GET: PlayersModels
         public ActionResult Index()
         {
-            return View(db.PlayersModels.ToList());
+            return View(db.APlayer.ToList());
         }
 
         // GET: PlayersModels/Details/5
@@ -28,7 +28,7 @@ namespace Web_Crawler_API.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayersModel playersModel = db.PlayersModels.Find(id);
+            PlayersModel playersModel = db.APlayer.Find(id);
             if (playersModel == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace Web_Crawler_API.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.PlayersModels.Add(playersModel);
+                db.APlayer.Add(playersModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace Web_Crawler_API.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayersModel playersModel = db.PlayersModels.Find(id);
+            PlayersModel playersModel = db.APlayer.Find(id);
             if (playersModel == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace Web_Crawler_API.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PlayersModel playersModel = db.PlayersModels.Find(id);
+            PlayersModel playersModel = db.APlayer.Find(id);
             if (playersModel == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace Web_Crawler_API.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PlayersModel playersModel = db.PlayersModels.Find(id);
-            db.PlayersModels.Remove(playersModel);
+            PlayersModel playersModel = db.APlayer.Find(id);
+            db.APlayer.Remove(playersModel);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

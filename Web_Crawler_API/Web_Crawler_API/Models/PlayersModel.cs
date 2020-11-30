@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,16 +12,16 @@ namespace Web_Crawler_API.Models
         [Key]
         public int ID { get; set; }
 
-        public string PlayerName { get; set; }
-        public float G { get; set; }
-        public float PTS { get; set; }
-        public float TRB { get; set; }
-        public float AST { get; set; }
-        public float FG { get; set; }
-        public float FG3 { get; set; }
-        public float FT { get; set; }
-        public float eFG { get; set; }
-        public float PER { get; set; }
-        public float WS { get; set; }
+        public string Name { get; set; }
+        public string G { get; set; }
+        public string PTS { get; set; }
+        public string TRB { get; set; }
+        public string AST { get; set; }
+        public string FG { get; set; }
+        public string FG3 { get; set; }
+        public string FT { get; set; }
+        public string eFG { get; set; }
+        public string PER { get; set; }
+        public string WS { get; set; }
     }
 }
