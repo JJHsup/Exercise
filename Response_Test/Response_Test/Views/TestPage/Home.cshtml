@@ -4,30 +4,112 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Home</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>TesterInfomationModel</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.TesterName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.TesterName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.TesterName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+    <div class="row">
+        <div class="col-12 col-md-6 box">
+            <div class="textbox">@DateTime.Now - Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt, alias? Deleniti corporis natus vero, illum doloremque cumque consequatur rerum explicabo repellendus itaque tempore quod architecto. Placeat harum suscipit exercitationem natus.</div>
+            <div class="input-name">
+                <div class="form-inline">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.TesterName, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.TesterName, new { htmlAttributes = new { @class = "form-control text-primary text-lg-center", placeholder = "Name" } })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Go" class="btn btn-info " />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 }
 
+@section CSS {
+    <style>
+        .box {
+            border: 2px solid #FFF;
+            background-color: #000;
+            margin: 50px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0px 10px;
+        }
 
+        .cotainer {
+            max-width: none !important;
+        }
+
+        @@media (min-width:1200px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:992px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:768px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:576px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        .row {
+            display: flex;
+            background-color: #000;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        body {
+            padding: 0px;
+        }
+
+        .body-content {
+            padding: 0px;
+            padding-left: 20px;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .col-md-6 {
+            width: calc(100% * 0.6);
+        }
+
+        .textbox {
+            color: #FFF;
+            text-align: center;
+            width: 70%;
+        }
+
+        footer {
+            display: none;
+        }
+
+        hr {
+            display: none;
+        }
+    </style>
+}
+
+@section JS{
+    <script src="~/Scripts/jquery.validate.js"></script>
+}

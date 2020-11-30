@@ -18,8 +18,16 @@ namespace Response_Test.Controllers
         [HttpPost]
         public ActionResult Home(TesterInfomationModel tester)
         {
-            TesterBuildRepository build = new TesterBuildRepository();
-            build.BuildTester(tester);
+            if (ModelState.IsValid)
+            {
+                TesterBuildRepository build = new TesterBuildRepository();
+                build.BuildTester(tester);
+            }
+            return View();
+        }
+
+        public ActionResult FirstTest()
+        {
             return View();
         }
     }
