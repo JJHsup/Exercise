@@ -181,3 +181,4 @@ C:\Users\PC\Desktop\cmder\Exercise\Response_Test\Response_Test\obj\Debug\Respons
 C:\Users\PC\Desktop\cmder\Exercise\Response_Test\Response_Test\obj\Debug\Response_Test.csproj.CopyComplete
 C:\Users\PC\Desktop\cmder\Exercise\Response_Test\Response_Test\obj\Debug\Response_Test.dll
 C:\Users\PC\Desktop\cmder\Exercise\Response_Test\Response_Test\obj\Debug\Response_Test.pdb
+C:\Users\江季浤\Documents\GitHub\Exercise\Response_Test\Response_Test\obj\Debug\Response_Test.csprojAssemblyReference.cache

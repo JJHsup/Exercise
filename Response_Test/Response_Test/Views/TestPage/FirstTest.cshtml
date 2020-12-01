@@ -1,0 +1,144 @@
+﻿@model Response_Test.Models.TesterInfomationModel
+
+@{
+    ViewBag.Title = "FirstTest";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-12 col-md-6 box flex-nowrap d-flex justify-content-around">
+            <div class="left-box d-flex flex-wrap col-3 justify-content-center">
+                <div class="title-box text-success">人造、顏色</div>
+                <button id="left"> A</button>
+            </div>
+            <div class="center-box d-flex col-5 justify-content-center">
+                <div class="textbox">
+                    <p>選擇看到的詞彙為何者歸類</p><hr />
+                    <p>若是為<strong>人造、顏色</strong>請按<strong>A</strong></p><hr />
+                    <p>若是為<strong>自然、自己</strong>請按<strong>L</strong></p><hr />
+                    <p id="blink">-----請按<strong>空白建</strong>開始-----</p>
+                </div>   
+            </div>            
+            <div class="right-box d-flex flex-wrap col-3 justify-content-center">
+                <div class="title-box text-success">自然、自己</div>
+                <button id="right" class="d-block"> L</button>
+            </div>
+        </div>
+    </div>
+}
+
+@section endJS{
+    
+    }
+
+@section CSS {
+    <style>
+        #blink{
+            animation-duration:.7s;
+            animation-name: blink;
+            animation-iteration-count: infinite;
+            animation-direction:alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @@keyframes blink{
+                from{
+                    opacity:1;
+                }
+                to{
+                    opacity:0;
+                }
+             }
+
+        .title-box{
+            font-size: xx-large;
+        }
+
+        button{
+            color:#00ff21;
+            border:none;
+            font-size:90px;
+            background-color:#000;
+        }
+        .box {
+            border: 2px solid #FFF;
+            background-color: #000;
+            margin: 50px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 0px 10px;
+        }
+
+        .cotainer {
+            max-width: none !important;
+        }
+
+        @@media (min-width:1200px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:992px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:768px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        @@media (min-width:576px) {
+            .container {
+                max-width: 100% !important;
+            }
+        }
+
+        .row {
+            display: flex;
+            background-color: #000;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+
+        body {
+            padding: 0px;
+        }
+
+        .body-content {
+            padding: 0px;
+            padding-left: 20px;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .textbox {
+            color: #FFF;
+            justify-content:center;
+            text-align: center;
+            width: 90%;
+            font-size:25px;
+        }
+
+        footer {
+            display: none;
+        }
+
+        hr {
+            display: none;
+        }
+    </style>
+}
+
+@section JS{
+    <script src="~/Scripts/jquery.validate.js"></script>
+}
