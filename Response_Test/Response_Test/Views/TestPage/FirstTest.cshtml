@@ -4,7 +4,6 @@
     ViewBag.Title = "FirstTest";
 }
 
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -20,8 +19,8 @@
                     <p>若是為<strong>人造、顏色</strong>請按<strong>A</strong></p><hr />
                     <p>若是為<strong>自然、自己</strong>請按<strong>L</strong></p><hr />
                     <p id="blink">-----請按<strong>空白建</strong>開始-----</p>
-                </div>   
-            </div>            
+                </div>
+            </div>
             <div class="right-box d-flex flex-wrap col-3 justify-content-center">
                 <div class="title-box text-success">自然、自己</div>
                 <button id="right" class="d-block"> L</button>
@@ -31,38 +30,55 @@
 }
 
 @section endJS{
-    
-    }
+    <script>
+        document.addEventListener("keydown", KeybordSelect);
+
+        function KeybordSelect() {
+            var keybordnumber = event.keyCode;
+            if (keybordnumber != 32) {
+                alert("請先按空白建!!!");
+            } else {
+                var p = document.querySelectorAll(".textbox p");
+                for (var i = 0; i < p.length; i++) {
+                    p[i].style.display = "none";
+                }
+            }
+        }
+        document.onkeydown = KeybordSelect;
+    </script>
+}
 
 @section CSS {
     <style>
-        #blink{
-            animation-duration:.7s;
+        #blink {
+            animation-duration: .7s;
             animation-name: blink;
             animation-iteration-count: infinite;
-            animation-direction:alternate;
+            animation-direction: alternate;
             animation-timing-function: ease-in-out;
         }
 
-        @@keyframes blink{
-                from{
-                    opacity:1;
-                }
-                to{
-                    opacity:0;
-                }
-             }
+        @@keyframes blink {
+            from {
+                opacity: 1;
+            }
 
-        .title-box{
-            font-size: xx-large;
+            to {
+                opacity: 0;
+            }
         }
 
-        button{
-            color:#00ff21;
-            border:none;
-            font-size:90px;
-            background-color:#000;
+        .title-box {
+            font-size: x-large;
         }
+
+        button {
+            color: #00ff21;
+            border: none;
+            font-size: 90px;
+            background-color: #000;
+        }
+
         .box {
             border: 2px solid #FFF;
             background-color: #000;
@@ -123,10 +139,10 @@
 
         .textbox {
             color: #FFF;
-            justify-content:center;
+            justify-content: center;
             text-align: center;
             width: 90%;
-            font-size:25px;
+            font-size: 18px;
         }
 
         footer {
