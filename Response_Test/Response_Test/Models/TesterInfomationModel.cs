@@ -16,5 +16,8 @@ namespace Response_Test.Models
         [StringLength(50)]
         [DisplayName("Name")]
         public string TesterName { get; set; }
+
+
+        public DateTime Login { get; set; }
     }
 }

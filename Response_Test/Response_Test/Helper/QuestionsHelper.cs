@@ -7,29 +7,14 @@ namespace Response_Test.Helper
 {
     public class QuestionsHelper
     {
-        public List<string> Left(int i)
+        public List<string> Result()
         {
             List<string> result = new List<string>();
-            if (i == 1)
-            {
-                result.AddRange(Nature());
-                return result;
-            }
-            return null;
+            result.AddRange(Nature());
+            result.AddRange(Artificial());
+            result.AddRange(Color());
+            return result;
         }
-
-        public List<string> Right(int i)
-        {
-            List<string> result = new List<string>();
-            if (i == 1)
-            {
-                result.AddRange(Artificial());
-                result.AddRange(Color());
-                return result;
-            }
-            return null;
-        }
-
         private List<string> Nature()
         {
             List<string> nature = new List<string>
@@ -39,10 +24,8 @@ namespace Response_Test.Helper
             return nature;
         }
 
-        private List<string> Personal()
+        private void  Personal()
         {
-            List<string> name = new List<string>();
-            return name;
         }
 
         private List<string> Artificial()

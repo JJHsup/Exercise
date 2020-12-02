@@ -13,7 +13,12 @@ namespace Response_Test.Repository
 
         public void BuildTester(TesterInfomationModel tester)
         {
-            db.TesterInfomationModels.Add(tester);
+            TesterInfomationModel result = new TesterInfomationModel
+            {
+                TesterName = tester.TesterName,
+                Login = DateTime.Now
+            };
+            db.TesterInfomationModels.Add(result);
             db.SaveChanges();
         }
     }

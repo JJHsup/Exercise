@@ -9,7 +9,7 @@
     @Html.AntiForgeryToken()
     <div class="row">
         <div class="col-12 col-md-6 box flex-nowrap d-flex justify-content-around">
-            <div class="left-box d-flex flex-wrap col-3 justify-content-center">
+            <div class="left-box d-flex flex-wrap col-2 justify-content-center">
                 <div class="title-box text-success">人造、顏色</div>
                 <button id="left"> A</button>
             </div>
@@ -21,7 +21,7 @@
                     <p id="blink">-----請按<strong>空白建</strong>開始-----</p>
                 </div>
             </div>
-            <div class="right-box d-flex flex-wrap col-3 justify-content-center">
+            <div class="right-box d-flex flex-wrap col-2 justify-content-center">
                 <div class="title-box text-success">自然、自己</div>
                 <button id="right" class="d-block"> L</button>
             </div>
@@ -32,7 +32,11 @@
 @section endJS{
     <script>
         document.addEventListener("keydown", KeybordSelect);
-
+        var json = $.ajax({
+            type: "Get",
+            url: "../api/Test/TestOne",
+            dataType: "json"
+        });
         function KeybordSelect() {
             var keybordnumber = event.keyCode;
             if (keybordnumber != 32) {
@@ -42,7 +46,9 @@
                 for (var i = 0; i < p.length; i++) {
                     p[i].style.display = "none";
                 }
-
+                var item = JSON.parse(json.responseText);
+                p[1].style.display = "block";
+                p[1].innerHTML = "<h1>" + item[0] + "</h1>";
             }
         }
         document.onkeydown = KeybordSelect;
